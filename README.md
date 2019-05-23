@@ -1,4 +1,4 @@
-# vue-template-dev-server
+# vue-init-template-dev-server
 
 *development server for vue.js custom template projects*
 
@@ -7,5 +7,5 @@
 
 
 
-[1]: https://img.shields.io/npm/v/vue-template-dev-server.svg?style=flat-square
-[2]: https://www.npmjs.com/package/vue-template-dev-server
+[1]: https://img.shields.io/npm/v/vue-init-template-dev-server.svg?style=flat-square
+[2]: https://www.npmjs.com/package/vue-init-template-dev-server

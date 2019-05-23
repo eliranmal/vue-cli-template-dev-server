@@ -1,8 +1,8 @@
 {
-  "name": "vue-template-dev-server",
+  "name": "vue-init-template-dev-server",
   "version": "0.1.1",
   "description": "development server for vue.js custom template projects",
-  "bin": "bin/vue-template-dev-server.sh",
+  "bin": "bin/serve.sh",
   "main": "index.js",
   "scripts": {
     "release": "bin/release.sh",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eliranmal/vue-template-dev-server.git"
+    "url": "git+https://github.com/eliranmal/vue-init-template-dev-server.git"
   },
   "author": "Eliran Malka",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/eliranmal/vue-template-dev-server/issues"
+    "url": "https://github.com/eliranmal/vue-init-template-dev-server/issues"
   },
-  "homepage": "https://github.com/eliranmal/vue-template-dev-server#readme"
+  "homepage": "https://github.com/eliranmal/vue-init-template-dev-server#readme"
 }
