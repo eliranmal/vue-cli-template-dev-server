@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 
+# todo - use $(npm bin) to detect host project root (and determine a default output path, and default arguments in general)
+
+
 function usage {
     log "usage:
 
@@ -37,39 +40,62 @@ function main {
 	local source_dir="$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )"
     validate_args 3 "$@"
     validate_os
+	ensure_fswatch
+	ensure_expect
     start "$@"
 }
 
 function start {
-	local template_project_dir="$1"
-	local output_dir="$2"
+	local template_project_dir
+	local output_dir
+	local output_project_dir
 	local output_project_name="$3"
-	local output_project_dir="$output_dir/$output_project_name"
-	local expect_file="vue-init.exp"
-	local expect_path="${source_dir}/${expect_file}"
+	# todo - put this in a temp dir provided by the OS
+	local expect_path="${source_dir}/vue-init.exp"
+
+	template_project_dir=$(abs_path "$1")
+	output_dir=$(abs_path "$2")
+    output_project_dir="$output_dir/$output_project_name"
 
 #    trap  'rm -f '"${expect_path}" EXIT
 
-	ensure_fswatch
-	ensure_expect
+	log ":)"
 
 	# create a directory to force vue-init to ask about overwriting the directory on the first time
 	if [[ ! -d "$output_project_dir" ]]; then
+		log "creating a new directory at [$output_project_dir]"
     	mkdir "$output_project_dir"
 	fi
 
-	autoexpect -f ${expect_path} vue init "${template_project_dir}" "${output_project_name}"
+	pushd ${output_dir} >/dev/null 2>&1
+	log "starting vue init survey"
+	autoexpect -quiet -f ${expect_path} vue init "${template_project_dir}" "${output_project_name}"
+	popd >/dev/null 2>&1
 
 	line_replace ${expect_path} 'set timeout -1' 'set timeout 5'
 	line_replace ${expect_path} 'expect eof' 'interact'
 
+	# restore execute permissions (ruined by the copy in line_replace)
 	chmod u+x ${expect_path}
 
-	log "watching template files in [${template_project_dir}/template]..."
+	clear
+	log "waiting for changes..."
 	fswatch -o "${template_project_dir}/template" | while read num; do
-		log "template source has changed, triggering vue-cli with default choices..."
-		${expect_path} ${template_project_dir} ${output_project_name}
+		log "change detected"
+		log "triggering vue init with default choices"
+
+		pushd ${output_dir} >/dev/null 2>&1
+		${expect_path} ${template_project_dir} ${output_project_name} >/dev/null 2>&1
+		popd >/dev/null 2>&1
+
+		clear
+		log "waiting for changes..."
 	done
+}
+
+function abs_path {
+	local path="$1"
+	printf "%s" "$(cd "$(dirname "$path")"; pwd)/$(basename "$path")"
 }
 
 function line_replace {
@@ -86,7 +112,7 @@ function ensure_fswatch {
 	if ! hash fswatch 2>/dev/null; then
 		log "fswatch is not installed. installing via brew..."
 		# bsd/macos specific implementation
-        brew install fswatch
+		brew install fswatch
 	fi
 }
 
@@ -94,16 +120,16 @@ function ensure_expect {
 	if ! hash expect 2>/dev/null || ! hash autoexpect 2>/dev/null; then
 		log "expect or autoexpect are not installed. installing via brew..."
 		# bsd/macos specific implementation
-        brew install expect
+		brew install expect
 	fi
 }
 
 function validate_args {
-    local min=$1; shift
-    if (($# < $min)); then
-        usage
-        exit 1
-    fi
+	local min=$1; shift
+	if (($# < $min)); then
+		usage
+		exit 1
+	fi
 }
 
 function validate_os {
@@ -120,8 +146,9 @@ function validate_os {
 
 function log {
 	local msg="$1"
-	printf "\n[vue-init-watcher] %s\n" "$msg"
+	printf "\n[vue-init-template-dev-server] %s\n" "$msg"
 }
 
+# DOwn WInd from the SEwage TREatment PLAnt
 
 main "$@"
