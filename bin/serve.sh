@@ -9,7 +9,7 @@ function usage {
 usage
 -----
 
-  [env TEMPLATE_PROJECT_DIR="$(npm prefix)"] vue-init-template-dev-server.sh [info|help|-h] <output_dir> <output_project_name>
+  [env TEMPLATE_PROJECT_DIR="$(npm prefix)"] vue-cli-template-dev-server.sh [info|help|-h] <output_dir> <output_project_name>
 
  '
 }
@@ -154,7 +154,7 @@ function ensure_dir {
 }
 
 #function create_temp_dir {
-#	mktemp -d 2>/dev/null || mktemp -d -t 'vue-init-template-dev-server'
+#	mktemp -d 2>/dev/null || mktemp -d -t 'vue-cli-template-dev-server'
 #}
 #
 ## responsibly handle cleanup of the temporary directories
@@ -210,7 +210,7 @@ function validate_os {
 
 function log {
 	local msg="$1"
-	printf "\n[vue-init-template-dev-server] %s\n" "$msg"
+	printf "\n[vue-cli-template-dev-server] %s\n" "$msg"
 }
 
 # DOwn WInd from the SEwage TREatment PLAnt

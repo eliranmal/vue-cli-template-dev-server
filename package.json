@@ -1,5 +1,5 @@
 {
-  "name": "vue-init-template-dev-server",
+  "name": "vue-cli-template-dev-server",
   "version": "0.1.2",
   "description": "development server for vue.js custom template projects",
   "bin": "bin/serve.sh",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eliranmal/vue-init-template-dev-server.git"
+    "url": "git+https://github.com/eliranmal/vue-cli-template-dev-server.git"
   },
   "author": "Eliran Malka",
   "license": "WTFPL",
   "bugs": {
-    "url": "https://github.com/eliranmal/vue-init-template-dev-server/issues"
+    "url": "https://github.com/eliranmal/vue-cli-template-dev-server/issues"
   },
-  "homepage": "https://github.com/eliranmal/vue-init-template-dev-server#readme"
+  "homepage": "https://github.com/eliranmal/vue-cli-template-dev-server#readme"
 }

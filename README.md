@@ -1,4 +1,4 @@
-# vue-init-template-dev-server
+# vue-cli-template-dev-server
 
 *development server for building vue.js custom templates*
 
@@ -16,7 +16,7 @@ generated vue.js application.
 
 ## setup
 
-    npm i -D vue-init-template-dev-server
+    npm i -D vue-cli-template-dev-server
 
 
 ## usage
@@ -25,7 +25,7 @@ generated vue.js application.
 
     {
       "scripts": {
-        "dev": "vue-init-template-dev-server ./out my-app"
+        "dev": "vue-cli-template-dev-server ./out my-app"
       }
     }
 
@@ -44,6 +44,6 @@ TODO
 
 
 
-[1]: https://img.shields.io/npm/v/vue-init-template-dev-server.svg?style=flat-square
-[2]: https://www.npmjs.com/package/vue-init-template-dev-server
+[1]: https://img.shields.io/npm/v/vue-cli-template-dev-server.svg?style=flat-square
+[2]: https://www.npmjs.com/package/vue-cli-template-dev-server
 [3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
