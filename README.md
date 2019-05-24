@@ -16,25 +16,35 @@ generated vue.js application.
 
 ## setup
 
-    npm i vue-cli-template-dev-server -D
+```sh
+npm i vue-cli-template-dev-server -D
+```
 
 
 ## usage
 
 *awesome-vue-cli-template/package.json*
 
-    {
-      "scripts": {
-        "dev": "vue-cli-template-dev-server ./out awesome-app"
-      }
-    }
+```json
+{
+  "scripts": {
+    "dev": "vue-cli-template-dev-server"
+  }
+}
+```
+
+*awesome-vue-cli-template/.gitignore*
+
+```gitignore
+out/
+```
 
 TODO - add captured gif of the live terminal activating the server
 
 
 ## CLI
 
-TODO - possibly redirect to docs directory (if using styli.sh)
+TODO - possibly redirect to `/usage` directory (if using styli.sh)
 
 
 ## workflow
