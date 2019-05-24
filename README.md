@@ -16,7 +16,7 @@ generated vue.js application.
 
 ## setup
 
-    npm i -D vue-cli-template-dev-server
+    npm i vue-cli-template-dev-server -D
 
 
 ## usage
