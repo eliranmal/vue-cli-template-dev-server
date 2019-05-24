@@ -25,7 +25,7 @@ generated vue.js application.
 
     {
       "scripts": {
-        "dev": "vue-cli-template-dev-server ./out my-app"
+        "dev": "vue-cli-template-dev-server ./out awesome-app"
       }
     }
 
