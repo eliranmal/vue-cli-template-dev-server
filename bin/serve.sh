@@ -79,7 +79,7 @@ function start {
 	# create a directory to force vue-init to ask about overwriting the directory on the first time
 	if [[ ! -d "$output_project_dir" ]]; then
 		log "creating a new directory at [$output_project_dir]"
-    	mkdir "$output_project_dir"
+    	mkdir -p "$output_project_dir"
 	fi
 
 	pushd ${output_dir} >/dev/null 2>&1
