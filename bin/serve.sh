@@ -156,6 +156,11 @@ function ensure_dir {
 #function create_temp_dir {
 #	mktemp -d 2>/dev/null || mktemp -d -t 'vue-init-template-dev-server'
 #}
+#
+## responsibly handle cleanup of the temporary directories
+#function cleanup_dir_on_exit {
+#	trap 'rm -rf '"$@"' >/dev/null 2>&1' EXIT
+#}
 
 function line_replace {
 	local file="$1"
