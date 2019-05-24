@@ -111,7 +111,7 @@ function start_auto_survey {
 	replace_line ${expect_file} 'set timeout -1' 'set timeout 5' # don't wait forever for an answer
 	replace_line ${expect_file} 'expect eof' 'interact' # allow the dev server to keep the process running
 
-	# restore execute permissions (ruined by the file copy in replace_line)
+	# restore execute permissions (they were ruined by the file copy in replace_line)
 	chmod u+x ${expect_file}
 }
 
