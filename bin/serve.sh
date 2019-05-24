@@ -9,7 +9,7 @@ function usage {
 usage
 -----
 
-  [env TEMPLATE_PROJECT_DIR="$(npm prefix)"] vue-cli-template-dev-server.sh [info|help|-h] <output_dir> <output_project_name>
+  [env TEMPLATE_PROJECT_DIR="$(npm prefix)"] vue-cli-template-dev-server.sh [-h] <output_dir> <output_project_name>
 
  '
 }
