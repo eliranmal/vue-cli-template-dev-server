@@ -1,8 +1,42 @@
 # vue-init-template-dev-server
 
-*development server for vue.js custom template projects*
+*development server for building vue.js custom templates*
 
 [![NPM][1]][2]
+
+
+## overview
+
+this package provides a file-watching server that auto compiles source files (under the `/template` directory) to an
+output directory, allowing live inspection of the generated vue.js application.
+
+
+## setup
+
+    npm i -D vue-init-template-dev-server
+
+
+## usage
+
+*package.json*
+
+    {
+      "scripts": {
+        "dev": "vue-init-template-dev-server ./out my-app"
+      }
+    }
+
+TODO - add captured gif of the live terminal activating the server
+
+
+## CLI
+
+TODO - possibly redirect to docs directory (if using styli.sh)
+
+
+## workflow
+
+TODO
 
 
 
