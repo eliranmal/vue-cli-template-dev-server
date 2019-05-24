@@ -1,6 +1,6 @@
 # vue-cli-template-dev-server
 
-*development server for building vue.js custom templates*
+*development server for building vue-cli custom templates*
 
 [![NPM][1]][2]
 
