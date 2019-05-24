@@ -21,7 +21,7 @@ generated vue.js application.
 
 ## usage
 
-*package.json*
+*awesome-vue-cli-template/package.json*
 
     {
       "scripts": {
