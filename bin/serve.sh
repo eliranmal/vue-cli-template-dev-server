@@ -51,11 +51,11 @@ function main {
 		info; exit 0
 	fi
 
-    validate_args 2 "$@"
-    validate_os
+	validate_args 2 "$@"
+	validate_os
 	setup_environment
 	ensure_dependencies
-    start "$@"
+	start "$@"
 }
 
 function start {
@@ -69,42 +69,24 @@ function start {
 
 	template_project_dir=$(abs_path "$TEMPLATE_PROJECT_DIR")
 	output_dir=$(abs_path "$1")
-    output_project_dir="$output_dir/$output_project_name"
+	output_project_dir="$output_dir/$output_project_name"
 
 	# todo - trap
-#    trap  'rm -f '"${expect_path}" EXIT
+#	trap  'rm -f '"${expect_path}" EXIT
 
 	log ":)"
 
 	# create a directory to force vue-init to ask about overwriting the directory on the first time
-	if [[ ! -d "$output_project_dir" ]]; then
-		log "creating a new directory at [$output_project_dir]"
-    	mkdir -p "$output_project_dir"
-	fi
+	ensure_dir "$output_project_dir"
 
-	pushd ${output_dir} >/dev/null 2>&1
 	log "starting vue init survey"
-	autoexpect -quiet -f ${expect_path} vue init "${template_project_dir}" "${output_project_name}"
-	popd >/dev/null 2>&1
-
-	line_replace ${expect_path} 'set timeout -1' 'set timeout 5'
-	line_replace ${expect_path} 'expect eof' 'interact'
-
-	# restore execute permissions (ruined by the copy in line_replace)
-	chmod u+x ${expect_path}
-
-	clear
-	log "waiting for changes..."
+	start_auto_survey ${output_dir} ${expect_path} ${template_project_dir} "${output_project_name}"
+	clear; log "output project generated. waiting for changes..."
 	fswatch -o "${template_project_dir}/template" | while read num; do
 		log "change detected"
-		log "triggering vue init with default choices"
-
-		pushd ${output_dir} >/dev/null 2>&1
-		${expect_path} ${template_project_dir} ${output_project_name} >/dev/null 2>&1
-		popd >/dev/null 2>&1
-
-		clear
-		log "waiting for changes..."
+		log "regenerating output project..."
+		start_survey ${output_dir} ${expect_path} ${template_project_dir} "${output_project_name}"
+		clear; log "output project generated. waiting for changes..."
 	done
 }
 
@@ -116,6 +98,35 @@ function setup_environment {
 function ensure_dependencies {
 	ensure_fswatch
 	ensure_expect
+}
+
+function start_auto_survey {
+	local work_dir="$1"
+	local expect_path="$2"
+	local template_project_dir="$3"
+	local output_project_name="$4"
+
+	pushd ${work_dir} >/dev/null 2>&1
+	autoexpect -quiet -f ${expect_path} vue init ${template_project_dir} "${output_project_name}"
+	popd >/dev/null 2>&1
+
+	# update the generated expect file to suit our needs
+	line_replace ${expect_path} 'set timeout -1' 'set timeout 5' # don't wait forever for an answer
+	line_replace ${expect_path} 'expect eof' 'interact' # allow the dev server to keep the process running
+
+	# restore execute permissions (ruined by the file copy in line_replace)
+	chmod u+x ${expect_path}
+}
+
+function start_survey {
+	local work_dir="$1"
+	local expect_path="$2"
+	local template_project_dir="$3"
+	local output_project_name="$4"
+
+	pushd ${work_dir} >/dev/null 2>&1
+	${expect_path} ${template_project_dir} "${output_project_name}" >/dev/null 2>&1
+	popd >/dev/null 2>&1
 }
 
 function validate_template_project_dir {
@@ -133,6 +144,13 @@ function ensure_template_project_dir {
 function abs_path {
 	local path="$1"
 	printf "%s" "$(cd "$(dirname "$path")"; pwd)/$(basename "$path")"
+}
+
+function ensure_dir {
+	local dir="$1"
+	if [[ ! -d "$dir" ]]; then
+		mkdir -p "$dir"
+	fi
 }
 
 #function create_temp_dir {
