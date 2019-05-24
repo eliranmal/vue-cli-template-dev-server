@@ -7,8 +7,11 @@
 
 ## overview
 
-this package provides a file-watching server that auto compiles source files (under the `/template` directory) to an
-output directory, allowing live inspection of the generated vue.js application.
+this package provides a watch server to ease the development of [vue-cli custom templates][3].
+
+once started, the server will listen to changes in the app template source files (under the `/template` directory).
+when a change is detected, it will re-compile the template to an output directory, allowing live inspection of the 
+generated vue.js application.
 
 
 ## setup
@@ -43,3 +46,4 @@ TODO
 
 [1]: https://img.shields.io/npm/v/vue-init-template-dev-server.svg?style=flat-square
 [2]: https://www.npmjs.com/package/vue-init-template-dev-server
+[3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
