@@ -46,12 +46,10 @@ arguments
 }
 
 function main {
-	local source_dir="$( cd "$(dirname "${BASH_SOURCE}")" ; pwd -P )"
-
 	if [[ "$@" =~ '-h' ]]; then
-		info; exit 0
+		info
+		exit 0
 	fi
-
 	validate_os
 	setup_environment
 	ensure_dependencies
@@ -59,25 +57,22 @@ function main {
 }
 
 function start {
-	local output_project_dir
+	local temp_dir
+	local expect_file
 	local output_dir="${1:-${TEMPLATE_PROJECT_DIR}/out}"
 	local output_project_name="${2:-awesome-vue-app}"
-	# todo - put this in a temp dir provided by the OS
-#	temp_dir="$(create_temp_dir)"
-#	cleanup_dir_on_exit "$temp_dir"
-	local expect_file="${source_dir}/vue-init.exp"
 
-	output_dir=$(abs_path "$output_dir")
-	output_project_dir="$output_dir/$output_project_name"
+	output_dir="$(abs_path "$output_dir")"
+	temp_dir="$(create_temp_dir)"
+	cleanup_dir_on_exit "$temp_dir"
+	expect_file="${temp_dir}/vue-init.exp"
 
 	log ":)"
-
-	# create a directory to force vue-init to ask about overwriting the directory on the first time
-	ensure_dir "$output_project_dir"
 
 	log "starting vue init survey"
 	start_auto_survey ${output_dir} ${expect_file} ${TEMPLATE_PROJECT_DIR} "${output_project_name}"
 	clear; log "output project generated. waiting for changes..."
+
 	fswatch -o "${TEMPLATE_PROJECT_DIR}/template" | while read num; do
 		log "change detected"
 		log "regenerating output project..."
@@ -101,6 +96,9 @@ function start_auto_survey {
 	local expect_file="$2"
 	local template_project_dir="$3"
 	local output_project_name="$4"
+
+	# create a directory to force vue-init to ask about overwriting the directory on the first time
+	ensure_dir "${work_dir}/$output_project_name"
 
 	pushd ${work_dir} >/dev/null 2>&1
 	# this will generate an expect file, all filled with answers to the vue-init survey questions
@@ -177,14 +175,14 @@ function ensure_dir {
 	fi
 }
 
-#function create_temp_dir {
-#	mktemp -d 2>/dev/null || mktemp -d -t 'vue-cli-template-dev-server'
-#}
-#
-## responsibly handle cleanup of the temporary directories
-#function cleanup_dir_on_exit {
-#	trap 'rm -rf '"$@"' >/dev/null 2>&1' EXIT
-#}
+function create_temp_dir {
+	mktemp -d 2>/dev/null || mktemp -d -t 'vue-cli-template-dev-server'
+}
+
+function cleanup_dir_on_exit {
+	trap 'rm -rf '"$@"' >/dev/null 2>&1 ; log "bye bye!
+"' EXIT
+}
 
 function replace_line {
 	local file="$1"
