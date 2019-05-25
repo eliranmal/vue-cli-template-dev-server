@@ -44,7 +44,7 @@ TODO - add captured gif of the live terminal activating the server
 
 ## CLI
 
-TODO - possibly redirect to `/usage` directory (if using styli.sh)
+use the `-h` flag to see the manual.
 
 
 ## workflow
