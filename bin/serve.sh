@@ -233,7 +233,8 @@ function quit {
 	else
 		usage
 	fi
-	exit 1
+	# don't exit erroneously - it's annoying in npm script executions
+	exit 0
 }
 
 # DOwn WInd from the SEwage TREatment PLAnt
