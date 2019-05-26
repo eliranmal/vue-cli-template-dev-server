@@ -3,7 +3,7 @@
 first of all, thank you for considering contributing to this project. you're awesome just for reading these words.
 
 there are many ways to contribute, all are welcome; from improving the documentation, fixing bugs and submitting issues,
-to writing new features, auditing code reviews and writing tutorials.
+to writing new features, auditing code reviews and testing platform support.
 
 
 ## house rules
