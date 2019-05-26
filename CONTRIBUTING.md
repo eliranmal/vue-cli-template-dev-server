@@ -11,19 +11,19 @@ to writing new features, auditing code reviews and writing tutorials.
 as a contributor, you're expected generally what a human is (be respectful, considerate, etc.), but you also hold
 other responsibilities:
 
-- ensure platform compatibility before applying a pull request. currently only bsd/mac is supported, but
-POSIX-compatible solutions are accepted regardless (and are generally preferred).
-- create issues for any changes that you wish to make. discuss things transparently and get community feedback.
 - being open minded is a big part what *open* means when we talk about open source.  
 be welcoming to newcomers and encourage diverse new contributors from all backgrounds.
-diversity of approaches is what makes projects grow.
+diversity of approaches is what helps us grow.
+- create issues for any changes that you wish to make. discuss things transparently and get community feedback.
+- ensure platform compatibility before applying a pull request. currently only bsd/mac is supported, but
+POSIX-compatible solutions are accepted regardless (and are generally preferred).
 
 
 ## first time here?
 
-if you're unsure where to begin, start by looking at the [issues page][2].
+if you're unsure where to begin, the [issues page][2] is a good place to start.
 the ones labeled with <kbd>[good first issue][1]</kbd> are simpler ones, while issues labeled
-<kbd><a href="/labels/help%20wanted">help wanted</a></kbd> typically require greater involvement.
+<kbd>[help wanted][4]</kbd> typically require greater involvement.
 
 found one that you like? or - even better - have your own ideas for a contribution?
 
@@ -146,3 +146,4 @@ These sections are not necessary, but can help streamline the contributions you 
 [1]: /labels/good%20first%20issue
 [2]: /issues
 [3]: https://github.com/eliranmal/vue-cli-template-dev-server/compare
+[4]: ./labels/help%20wanted
