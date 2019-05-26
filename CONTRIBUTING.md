@@ -11,11 +11,14 @@ to writing new features, auditing code reviews and writing tutorials.
 as a contributor, you're expected generally what a human is (be respectful, considerate, etc.), but you also hold
 other responsibilities:
 
-- being open minded is a big part what *open* means when we talk about open source.  
-be welcoming to newcomers and encourage diverse new contributors from all backgrounds.
+- **be**ing **open minded** is a big part what *open* means when we talk about *open source*.  
+**be welcoming** to newcomers and **encourage diverse** new contributors from all backgrounds.
 diversity of approaches is what helps us grow.
-- create issues for any changes that you wish to make. discuss things transparently and get community feedback.
-- ensure platform compatibility before applying a pull request. currently only bsd/mac is supported, but
+- **own the code**. it's no one's and everyone's. 
+- **be transparent** and create issues for any changes that you wish to make. discuss things openly and get community feedback.
+
+TODO - put this item in the style & conventions section
+- ensure platform compatibility before opening a pull request. currently only bsd/mac is supported, but
 POSIX-compatible solutions are accepted regardless (and are generally preferred).
 
 
@@ -23,17 +26,12 @@ POSIX-compatible solutions are accepted regardless (and are generally preferred)
 
 if you're unsure where to begin, the [issues page][2] is a good place to start.
 the ones labeled with <kbd>[good first issue][1]</kbd> are simpler ones, while issues labeled
-<kbd>[help wanted][4]</kbd> typically require greater involvement.
+<kbd>[help wanted][4]</kbd> typically require greater involvement and proficiency.
 
-<kbd>[help wanted][4]</kbd>  
-<kbd><a href="https://github.com/eliranmal/vue-cli-template-dev-server/labels/help%20wanted">help wanted</a></kbd>  
-<a href="https://github.com/eliranmal/vue-cli-template-dev-server/labels/help%20wanted"><kbd>help wanted</kbd></a>  
+have your own ideas for a contribution? even better! just make sure your change has not been proposed yet (look through
+open issues as well as pull-requests).
 
-found one that you like? or - even better - have your own ideas for a contribution?
-
-you're ready! hop on!
-
-feel free to reach for help, we all thrive through sharing :smile_cat:
+that's it, you're ready! feel free to reach for help, we all thrive through sharing :heart:
 
 
 ## getting started
