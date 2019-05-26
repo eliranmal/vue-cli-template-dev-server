@@ -73,7 +73,7 @@ use `feature` as prefix for branches that add features or make enhancements, or 
 
 ## notes
 
-1. *in contrast to conventionalcommits' recommendations, you should not squash your commits. we want to keep everything
+1. *in contrast to conventionalcommits' recommendations, you should not squash your commits. we like to keep everything
 in the commit history.*
 
 
