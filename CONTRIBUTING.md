@@ -143,7 +143,7 @@ These sections are not necessary, but can help streamline the contributions you 
 
 
 
-[1]: /labels/good%20first%20issue
-[2]: /issues
+[1]: https://github.com/eliranmal/vue-cli-template-dev-server/labels/good%20first%20issue
+[2]: https://github.com/eliranmal/vue-cli-template-dev-server/issues
 [3]: https://github.com/eliranmal/vue-cli-template-dev-server/compare
-[4]: ./labels/help%20wanted
+[4]: https://github.com/eliranmal/vue-cli-template-dev-server/labels/help%20wanted
