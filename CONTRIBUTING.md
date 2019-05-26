@@ -25,6 +25,10 @@ if you're unsure where to begin, the [issues page][2] is a good place to start.
 the ones labeled with <kbd>[good first issue][1]</kbd> are simpler ones, while issues labeled
 <kbd>[help wanted][4]</kbd> typically require greater involvement.
 
+<kbd>[help wanted][4]</kbd>  
+<kbd><a href="https://github.com/eliranmal/vue-cli-template-dev-server/labels/help%20wanted">help wanted</a></kbd>  
+<a href="https://github.com/eliranmal/vue-cli-template-dev-server/labels/help%20wanted"><kbd>help wanted</kbd></a>  
+
 found one that you like? or - even better - have your own ideas for a contribution?
 
 you're ready! hop on!
