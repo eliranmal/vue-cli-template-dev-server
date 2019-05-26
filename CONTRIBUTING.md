@@ -33,9 +33,9 @@ that's it, you're ready! feel free to reach for help, we all thrive through shar
 ## development workflow
 
 1. create your own fork of the repository, and clone it locally.
-1. on your forked repository, create a new branch off of the master branch, following the conventions [mentioned below][13].
-1. make changes to the code. follow the conventions in the [code style][10] section.
-1. commit your changes. please follow this [commit message style][11].
+1. on your forked repository, create a new branch off of the master branch, following the conventions [mentioned below][103].
+1. make changes to the code. follow the conventions in the [code style][101] section.
+1. commit your changes. please follow this [commit message style][102].
 1. repeat previous two steps until you run out of coffee.
 1. make new coffee.
 1. repeat steps 3 through 6 until you're satisfied.
@@ -57,7 +57,7 @@ arguments serve for passing options.
 
 ### commit message
 
-loosely follow the [conventionalcommits][5] conventions<sup>\[[1][7]]</sup>. the important bits are:
+loosely follow the [conventionalcommits][5] conventions<sup>\[[1][100]]</sup>. the important bits are:
 
 - use the appropriate structure for the commit message.
 - explicitly state when you're making a `BREAKING_CHANGE`, so we can bump the major version.
@@ -85,9 +85,7 @@ in the commit history.*
 [3]: https://github.com/eliranmal/vue-cli-template-dev-server/compare
 [4]: https://github.com/eliranmal/vue-cli-template-dev-server/labels/help%20wanted
 [5]: https://www.conventionalcommits.org/
-[7]: #notes
-[10]: #code-style
-[11]: #commit-message
-[12]: #pull-requests
-[13]: #naming-branches
-
+[100]: #notes
+[101]: #code-style
+[102]: #commit-message
+[103]: #naming-branches
