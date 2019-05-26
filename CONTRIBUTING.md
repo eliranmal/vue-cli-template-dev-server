@@ -1,6 +1,6 @@
 # contributing guide
 
-first of all, thank you for considering contributing to this project. you're awesome just for reading these words.
+first of all, thank you for considering contributing to this project. you're awesome just for reading these words :purple_heart:
 
 there are many ways to contribute, all are welcome; from improving the documentation, fixing bugs and submitting issues,
 to writing new features, auditing code reviews and testing for platform support.
@@ -13,7 +13,7 @@ other responsibilities:
 
 - **be**ing **open minded** is a big part what *open* means when we talk about *open source*.  
 **be welcoming** to newcomers and **encourage diverse** new contributors from all backgrounds.
-diversity of approaches is what helps us grow.
+diversity of approaches is what helps us grow :seedling:
 - **own the code**. it's no one's and everyone's. 
 - **be transparent** and create issues for any changes that you wish to make. discuss things openly and get community feedback.
 
@@ -27,7 +27,7 @@ the ones labeled with <kbd>[good first issue][1]</kbd> are simpler ones, while i
 have your own ideas for a contribution? even better! just make sure your change has not been proposed yet (look through
 open issues as well as pull-requests).
 
-that's it, you're ready! feel free to reach for help, we all thrive through sharing :heart:
+that's it, you're ready! feel free to reach for help, we all thrive through sharing :octocat:
 
 
 ## development workflow
