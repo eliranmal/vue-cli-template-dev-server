@@ -61,7 +61,10 @@ to see it in action:
       cd <workspace-path>/vue-cli-template-dev-server # <-- you know the drill
       npm start
 
-  this will install dependencies, and run the example app's dev server.
+  this will install dependencies, and run the example app's dev server.  
+  from now on, if you kill the server, you can run it again with:
+  
+      npm run dev
 
 - open *./template/hello.md* and *./out/hello.md* in your editor.
 
