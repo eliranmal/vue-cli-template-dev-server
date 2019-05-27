@@ -48,11 +48,9 @@ implementations are generally preferred.
 
 ### code style
 
-*these are all recommendations, i will never reject pull requests based on style alone*
-
 - keep code formatted, indent with tabs, not spaces.
-- prefer functional style; keep functions pure and concise, use stdin for function input and chain operations with pipes.
-arguments serve for passing options.
+- declare all scope variables on the top.
+- encapsulate code into functions. keep them pure and concise and chain operations with pipes.
 
 
 ### commit message
