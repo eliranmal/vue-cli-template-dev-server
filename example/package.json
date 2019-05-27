@@ -1,0 +1,14 @@
+{
+  "name": "awesome-custom-template",
+  "version": "1.0.0",
+  "description": "example custom template project for vue-cli-template-dev-server",
+  "private": true,
+  "author": "Eliran Malka",
+  "scripts": {
+    "start": "npm i --no-package-lock && npm run dev",
+    "dev": "vue-cli-template-dev-server"
+  },
+  "devDependencies": {
+    "vue-cli-template-dev-server": "file:.."
+  }
+}

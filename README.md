@@ -16,6 +16,8 @@ generated vue.js application.
 
 ## setup
 
+install via npm:
+
 ```sh
 npm i vue-cli-template-dev-server -D
 ```
@@ -23,21 +25,52 @@ npm i vue-cli-template-dev-server -D
 
 ## usage
 
-*awesome-vue-cli-template/package.json*
+in your custom vue-cli template project, add these bits:
 
-```json
+*package.json*
+
+```json5
 {
   "scripts": {
     "dev": "vue-cli-template-dev-server"
-  }
+  },
 }
 ```
 
-*awesome-vue-cli-template/.gitignore*
+*.gitignore*
 
 ```gitignore
 out/
 ```
+
+
+## demo
+
+check out the [*/example*][5] directory in this repository for an example usage with the most simple application.
+it has just the bare minimum required for the dev-server to work.
+
+to see it in action:
+
+- get a local clone:
+  
+      cd <workspace-path> # <-- replace this with your local workspace directory
+      git clone https://github.com/eliranmal/vue-cli-template-dev-server.git
+
+- navigate to the demo, and ignite the engines:
+  
+      cd <workspace-path>/vue-cli-template-dev-server # <-- you know the drill
+      npm start
+
+  this will install dependencies, and run the example app's dev server.  
+  from now on, if you kill the server, you can run it again with:
+  
+      npm run dev
+
+- open *./template/hello.md* and *./out/hello.md* in your editor.
+
+- edit *./template/hello.md* and save your changes.
+
+- see *./out/hello.md* change accordingly.
 
 TODO - add captured gif of the live terminal activating the server
 
@@ -47,13 +80,10 @@ TODO - add captured gif of the live terminal activating the server
 use the `-h` flag to see the manual.
 
 
-## workflow
-
-TODO
-
 
 
 
 [1]: https://img.shields.io/npm/v/vue-cli-template-dev-server.svg?style=flat-square
 [2]: https://www.npmjs.com/package/vue-cli-template-dev-server
 [3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
+[5]: example
