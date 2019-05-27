@@ -1,0 +1,12 @@
+{
+  "prompts": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "message": "Application name:"
+    },
+    "author": {
+      "when": "false"
+    }
+  }
+}
