@@ -53,18 +53,24 @@ to see it in action:
 
 - get a local clone:
   
-      cd <workspace-path> # <-- replace this with your local workspace directory
-      git clone https://github.com/eliranmal/vue-cli-template-dev-server.git
+  ```sh
+  cd <workspace-path> # <-- replace this with your local workspace directory
+  git clone https://github.com/eliranmal/vue-cli-template-dev-server.git
+  ```
 
 - navigate to the demo, and ignite the engines:
   
-      cd <workspace-path>/vue-cli-template-dev-server # <-- you know the drill
-      npm start
+  ```sh
+  cd <workspace-path>/vue-cli-template-dev-server # <-- you know the drill
+  npm start
+  ```
 
   this will install dependencies, and run the example app's dev server.  
   from now on, if you kill the server, you can run it again with:
   
-      npm run dev
+  ```sh
+  npm run dev
+  ```
 
 - open *./template/hello.md* and *./out/hello.md* in your editor.
 
