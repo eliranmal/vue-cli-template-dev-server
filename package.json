@@ -3,6 +3,9 @@
   "version": "0.3.4",
   "description": "development server for vue.js custom template projects",
   "bin": "bin/server.sh",
+  "files": [
+    "bin/server.sh"
+  ],
   "main": "index.js",
   "scripts": {
     "release": "bin/release.sh",
