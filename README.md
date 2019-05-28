@@ -88,14 +88,16 @@ to see it in action:
 - get a local clone:
   
   ```sh
-  cd <workspace-path> # <-- replace this with your local workspace directory
+  cd <workspace-path>
+  #   ^ replace this with your local workspace directory
   git clone https://github.com/eliranmal/vue-cli-template-dev-server.git
   ```
 
 - navigate to the demo, and ignite the engines:
   
   ```sh
-  cd <workspace-path>/vue-cli-template-dev-server # <-- you know the drill
+  cd <workspace-path>/vue-cli-template-dev-server/example
+  #   ^ you know the drill
   npm start
   ```
 
