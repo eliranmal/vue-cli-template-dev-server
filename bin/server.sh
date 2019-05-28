@@ -68,17 +68,19 @@ function start {
 
 	set_traps "$temp_dir"
 
-	log ":)"
+	log 'hi :)'
 
-	log "starting vue init survey"
+	log 'starting vue init survey...'
 	start_auto_survey ${output_dir} ${expect_file} ${TEMPLATE_PROJECT_DIR} "${output_project_name}"
-	clear; log "project generated. waiting for changes..."
+	log 'project generated using provided answers'
+	log 'waiting for changes...'
 
 	fswatch -o "${TEMPLATE_PROJECT_DIR}/template" | while read num; do
-		log "change detected"
-		log "regenerating output project..."
+		log 'change detected'
+		log 'auto-generating output project...'
 		start_survey ${output_dir} ${expect_file}
-		clear; log "project generated. waiting for changes..."
+		log 'project regenerated using initial answers'
+		log 'waiting for changes...'
 	done
 }
 
@@ -260,8 +262,8 @@ function do_exit {
 }
 
 function log_exit {
-	log "bye bye!
-"
+	log 'bye!
+'
 }
 
 # DOwn WInd from the SEwage TREatment PLAnt
