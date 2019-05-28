@@ -242,7 +242,7 @@ function set_traps {
 
 function log {
 	local msg="$1"
-	printf "\n[vue-cli-template-dev-server] %s\n" "$msg"
+	printf "\n[dev-server] %s\n" "$msg"
 }
 
 function quit {
