@@ -13,7 +13,7 @@
 
 ## overview
 
-this package provides a watch server to ease the development of [vue-cli custom templates][3].
+this package provides a simple, file-watching server to ease the development of [vue-cli custom templates][3].
 
 once started, the server will listen to changes in the app template source files (under the `/template` directory).
 when a change is detected, it will re-compile the template to an output directory, allowing live inspection of the 
