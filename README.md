@@ -6,9 +6,9 @@
 
 ---
 
-<div style="text-align: center">
-![example usage][4]
-</div>
+<p align="center">
+  <img src="./resources/example-usage.gif" />
+</p>
 
 
 ## overview
@@ -102,5 +102,4 @@ use the `-h` flag to see the manual.
 [1]: https://img.shields.io/npm/v/vue-cli-template-dev-server.svg?style=flat-square
 [2]: https://www.npmjs.com/package/vue-cli-template-dev-server
 [3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
-[4]: resources/example-usage.gif
 [5]: example
