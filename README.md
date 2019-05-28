@@ -78,8 +78,6 @@ to see it in action:
 
 - see *./out/hello.md* change accordingly.
 
-TODO - add captured gif of the live terminal activating the server
-
 
 ## CLI
 
