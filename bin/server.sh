@@ -64,20 +64,21 @@ function start {
 
 	output_dir="$(abs_path "$output_dir")"
 	temp_dir="$(create_temp_dir)"
-	cleanup_dir_on_exit "$temp_dir"
 	expect_file="${temp_dir}/vue-init.exp"
+
+	set_traps "$temp_dir"
 
 	log ":)"
 
 	log "starting vue init survey"
 	start_auto_survey ${output_dir} ${expect_file} ${TEMPLATE_PROJECT_DIR} "${output_project_name}"
-	clear; log "output project generated. waiting for changes..."
+	clear; log "project generated. waiting for changes..."
 
 	fswatch -o "${TEMPLATE_PROJECT_DIR}/template" | while read num; do
 		log "change detected"
 		log "regenerating output project..."
 		start_survey ${output_dir} ${expect_file}
-		clear; log "output project generated. waiting for changes..."
+		clear; log "project generated. waiting for changes..."
 	done
 }
 
@@ -104,6 +105,11 @@ function start_auto_survey {
 	# this will generate an expect file, all filled with answers to the vue-init survey questions
 	autoexpect -quiet -f ${expect_file} vue init ${template_project_dir} "${output_project_name}"
 	popd >/dev/null 2>&1
+
+	search_line ${expect_file} 'expect -exact.*'
+	if (( $? == 1 )); then
+		quit 'initial questions were not answered'
+	fi
 
 	# update the generated expect file to suit our needs
 	replace_line ${expect_file} 'set timeout -1' 'set timeout 5' # don't wait forever for an answer
@@ -175,13 +181,20 @@ function ensure_dir {
 	fi
 }
 
+function remove_dir {
+	rm -rf "$@" >/dev/null 2>&1
+}
+
 function create_temp_dir {
 	mktemp -d 2>/dev/null || mktemp -d -t 'vue-cli-template-dev-server'
 }
 
-function cleanup_dir_on_exit {
-	trap 'rm -rf '"$@"' >/dev/null 2>&1 ; log "bye bye!
-"' EXIT
+function search_line {
+	local file="$1"
+	local pattern="$2"
+	local output
+	output="$(grep '^'"$pattern"'$' ${file})"
+	[[ -n "$output" ]]
 }
 
 function replace_line {
@@ -220,20 +233,35 @@ function validate_os {
 	fi
 }
 
+function set_traps {
+	local temp_dir="$1"
+	trap 'remove_dir '"$temp_dir"' ; log_exit ; do_exit' EXIT
+}
+
 function log {
 	local msg="$1"
 	printf "\n[vue-cli-template-dev-server] %s\n" "$msg"
 }
 
 function quit {
-	local msg="$1"
-	if [[ -n "$msg" ]]; then
-		log "$msg"'
-'
+	local errMsg="$1"
+	if [[ -n "$errMsg" ]]; then
+		log "fatal: $errMsg"
 	else
 		usage
 	fi
 	exit 1
+}
+
+# activated on any 'exit' calls by the EXIT trap
+function do_exit {
+	# always exit with successful status to avoid the annoying npm error blob on the terminal
+	exit 0
+}
+
+function log_exit {
+	log "bye bye!
+"
 }
 
 # DOwn WInd from the SEwage TREatment PLAnt
