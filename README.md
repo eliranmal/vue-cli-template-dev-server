@@ -22,18 +22,15 @@ generated vue.js application.
 
 ## setup
 
-install via npm:
-
-```sh
-npm i vue-cli-template-dev-server -D
-```
-
-
-## usage
-
-- in your custom vue-cli template project, add these bits:
+- install via npm:
   
-  *package.json*
+  ```sh
+  npm i vue-cli-template-dev-server -D
+  ```
+
+- add these bits:
+  
+  *package.json <sup>\*</sup>*
   
   ```json5
   {
@@ -48,18 +45,43 @@ npm i vue-cli-template-dev-server -D
   ```gitignore
   out/
   ```
-
-- than, run:
   
-  ```sh
-  npm run dev
-  ```
+<sup>*\* if you don't have a package.json file, run `npm init`.*</sup>
+
+
+## usage
+
+simply run the dev script:
+
+```sh
+npm run dev
+```
+
+the server script accepts two optional arguments. the first one is used for overriding the output directory path
+(defaults to `out`), and the second for the output project name (`awesome-vue-app`, if not provided).
+
+to use them, either directly run:
+
+```sh
+npm run dev -- 'dist/dev-server-out' 'my-app'
+```
+
+&hellip; or put them in the package scripts for good:
+
+```json5
+{
+  "scripts": {
+    "dev": "vue-cli-template-dev-server 'dist/dev-server-out' 'my-app'"
+  },
+}
+```
+
 
 
 ## demo
 
 check out the [*/example*][5] directory in this repository for an example usage with the most simple application.
-it has just the bare minimum required for the dev-server to work.
+it only contains what's required for the dev-server to work.
 
 to see it in action:
 
