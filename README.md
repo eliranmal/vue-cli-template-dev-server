@@ -6,7 +6,9 @@
 
 ---
 
+<div style="text-align: center">
 ![example usage][4]
+</div>
 
 
 ## overview
