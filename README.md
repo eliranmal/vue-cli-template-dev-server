@@ -4,6 +4,8 @@
 
 [![NPM][1]][2]
 
+![example usage][4]
+
 
 ## overview
 
@@ -25,23 +27,29 @@ npm i vue-cli-template-dev-server -D
 
 ## usage
 
-in your custom vue-cli template project, add these bits:
+- in your custom vue-cli template project, add these bits:
+  
+  *package.json*
+  
+  ```json5
+  {
+    "scripts": {
+      "dev": "vue-cli-template-dev-server"
+    },
+  }
+  ```
+  
+  *.gitignore*
+  
+  ```gitignore
+  out/
+  ```
 
-*package.json*
-
-```json5
-{
-  "scripts": {
-    "dev": "vue-cli-template-dev-server"
-  },
-}
-```
-
-*.gitignore*
-
-```gitignore
-out/
-```
+- than, run:
+  
+  ```sh
+  npm run dev
+  ```
 
 
 ## demo
@@ -90,4 +98,5 @@ use the `-h` flag to see the manual.
 [1]: https://img.shields.io/npm/v/vue-cli-template-dev-server.svg?style=flat-square
 [2]: https://www.npmjs.com/package/vue-cli-template-dev-server
 [3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
+[4]: resources/example-usage.gif
 [5]: example
