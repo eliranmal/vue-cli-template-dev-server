@@ -55,7 +55,7 @@ implementations are generally preferred.
 
 ### commit message
 
-loosely follow the [conventionalcommits][5] conventions<sup>\[[1][100]]</sup>. the important bits are:
+loosely follow the [conventionalcommits][5] conventions <sup>\[[1][100]]</sup>. the important bits are:
 
 - use the appropriate structure for the commit message.
 - explicitly state when you're making a `BREAKING_CHANGE`, so we can bump the major version.
