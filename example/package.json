@@ -5,7 +5,7 @@
   "private": true,
   "author": "Eliran Malka",
   "scripts": {
-    "start": "npm i --no-package-lock && npm run dev",
+    "start": "npm i && npm run dev",
     "dev": "vue-cli-template-dev-server"
   },
   "devDependencies": {
