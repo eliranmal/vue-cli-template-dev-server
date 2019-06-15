@@ -56,11 +56,6 @@ environment
 '
 }
 
-# todo - make this phase 2!
-#echo '----------------------'
-#echo "${npm_package_config_initCommand:-dev}"
-#echo '----------------------'
-
 function main {
 	if [[ "$@" =~ '-h' ]]; then
 		info
@@ -75,17 +70,17 @@ function main {
 function start {
 	local temp_dir
 	local expect_file
-	# todo - is this default working properly in all cases? test it
 	local target_dir="${1:-${SOURCE_DIR}/out}"
 	local target_project_name="${2:-awesome-vue-app}"
+
+	# we have to ensure the directory exists first, as abs_path() will fail on non-existing directories
+	ensure_dir "$target_dir"
 
 	target_dir="$(abs_path "$target_dir")"
 	temp_dir="$(create_temp_dir)"
 	expect_file="${temp_dir}/vue-init.exp"
 
 	set_traps "$temp_dir"
-
-	# todo - cleanup output dir before everything
 
 	log 'hi :)'
 
@@ -126,10 +121,11 @@ function start_auto_survey {
 	# create a directory to force vue-init to ask about overwriting the directory on the first time
 	ensure_dir "${work_dir}/$target_project_name"
 
-	pushd ${work_dir} >/dev/null 2>&1
-	# this will generate an expect file, all filled with answers to the vue-init survey questions
-	autoexpect -quiet -f ${expect_file} vue init ${source_dir} "${target_project_name}"
-	popd >/dev/null 2>&1
+	(
+		cd ${work_dir} >/dev/null 2>&1
+		# this will generate an expect file, all filled with answers to the vue-init survey questions
+		autoexpect -quiet -f ${expect_file} vue init ${source_dir} "${target_project_name}"
+	)
 
 	search_line ${expect_file} 'expect -exact.*'
 	if (( $? == 1 )); then
@@ -148,8 +144,12 @@ function initialize_target_project {
 	local project_dir="$1"
 	local init_command="$2"
 
-	if is_npm_repo "$project_dir"; then
-		pushd ${project_dir} >/dev/null 2>&1
+	if ! is_npm_repo "$project_dir"; then
+		return 0
+	fi
+
+	(
+		cd ${project_dir} >/dev/null 2>&1
 
 		# install dependencies
 		npm i >/dev/null 2>&1
@@ -164,18 +164,17 @@ function initialize_target_project {
 				quit "the output project's initialize command execution failed"
 			fi
 		fi
-
-		popd >/dev/null 2>&1
-	fi
+	)
 }
 
 function start_survey {
 	local work_dir="$1"
 	local expect_file="$2"
 
-	pushd ${work_dir} >/dev/null 2>&1
-	${expect_file} >/dev/null 2>&1
-	popd >/dev/null 2>&1
+	(
+		cd ${work_dir} >/dev/null 2>&1
+		${expect_file} >/dev/null 2>&1
+	)
 }
 
 function validate_source_dir {
@@ -224,6 +223,9 @@ function is_npm_command_available {
 
 function abs_path {
 	local path="$1"
+	if ! path_exist "$path"; then
+		return 1
+	fi
 	printf "%s" "$(cd "$(dirname "$path")"; pwd)/$(basename "$path")"
 }
 
@@ -242,6 +244,11 @@ function is_file {
 function is_dir {
 	local path="$1"
 	[[ -n "$path" && -d "$path" ]]
+}
+
+function path_exist {
+	local path="$1"
+	[[ -n "$path" && -e "$path" ]]
 }
 
 function remove_dir {
