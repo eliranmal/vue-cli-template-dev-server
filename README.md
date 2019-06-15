@@ -19,10 +19,13 @@ once started, the server will listen to changes in the app template source files
 when a change is detected, it will re-compile the template to an output directory, allowing live inspection of the 
 generated vue.js application.
 
+after the output project is generated, if it's an NPM project, the server will collect its dependencies with `npm i`,
+and run `npm run dev` (you can customize which command will run instead of `dev`).
+
 
 ## setup
 
-- install via npm:
+- install via NPM:
   
   ```sh
   npm i vue-cli-template-dev-server -D
@@ -76,6 +79,12 @@ npm run dev -- 'dist/dev-server-out' 'my-app'
 }
 ```
 
+you can also change which NPM script will run on startup (`dev` by default), by passing the
+`TARGET_INIT_COMMAND` environment variable:
+
+```sh
+env TARGET_INIT_COMMAND='serve' npm run dev -- 'dist/dev-server-out' 'my-app'
+```
 
 
 ## demo
