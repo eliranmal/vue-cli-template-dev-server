@@ -63,7 +63,7 @@ function main {
 	fi
 	validate_os
 	setup_environment
-	ensure_dependencies
+	require_dependencies
 	start "$@"
 }
 
@@ -107,9 +107,9 @@ function setup_environment {
 	ensure_target_init_command
 }
 
-function ensure_dependencies {
-	ensure_fswatch
-	ensure_expect
+function require_dependencies {
+	require_fswatch
+	require_expect
 }
 
 function start_auto_survey {
@@ -277,19 +277,15 @@ function replace_line {
 	rm -f "${file}.new"
 }
 
-function ensure_fswatch {
+function require_fswatch {
 	if ! hash fswatch 2>/dev/null; then
-		log "fswatch is not installed. installing via brew..."
-		# bsd/macos specific implementation
-		brew install fswatch
+		quit '"fswatch" is required. type `brew install fswatch` to install it, then relaunch the server.'
 	fi
 }
 
-function ensure_expect {
+function require_expect {
 	if ! hash expect 2>/dev/null || ! hash autoexpect 2>/dev/null; then
-		log "expect or autoexpect are not installed. installing via brew..."
-		# bsd/macos specific implementation
-		brew install expect
+		quit '"expect" is required. type `brew install expect` to install it, then relaunch the server.'
 	fi
 }
 
@@ -316,7 +312,8 @@ function log {
 function quit {
 	local errMsg="$1"
 	if [[ -n "$errMsg" ]]; then
-		log "fatal: $errMsg"
+		log "fatal: $errMsg
+"
 	else
 		usage
 	fi
