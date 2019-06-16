@@ -91,7 +91,7 @@ env TARGET_INIT_COMMAND='serve' npm run dev -- 'dist/dev-server-out' 'my-app'
 
 use the `-h` flag to see the manual.
 
-<sup>***note:** to run from the terminal, navigate to the project root directory and run `$(npm bin)/vue-cli-template-dev-server -h`. when installed globally (not recommended), you can just run `vue-cli-template-dev-server -h` from anywhere.*</sup>
+<sup>:ok_hand: ***tip:** to run from the terminal, navigate to the project root directory and run `$(npm bin)/vue-cli-template-dev-server -h`. when installed globally (not recommended), you can just run `vue-cli-template-dev-server -h` from anywhere.*</sup>
 
 
 ## demo
