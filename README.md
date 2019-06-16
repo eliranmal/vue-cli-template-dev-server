@@ -87,6 +87,13 @@ env TARGET_INIT_COMMAND='serve' npm run dev -- 'dist/dev-server-out' 'my-app'
 ```
 
 
+## CLI
+
+use the `-h` flag to see the manual.
+
+***note:** to run from the terminal, navigate to the project root directory and run `$(npm bin)/vue-cli-template-dev-server -h`. when installed globally (not recommended), you can just run `vue-cli-template-dev-server -h` from anywhere.*
+
+
 ## demo
 
 check out the [*/example*][5] directory in this repository for an example usage with the most simple application.
@@ -122,11 +129,6 @@ to see it in action:
 - edit *./template/hello.md* and save your changes.
 
 - see *./out/hello.md* change accordingly.
-
-
-## CLI
-
-use the `-h` flag to see the manual.
 
 
 ## kudos
