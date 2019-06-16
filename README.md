@@ -129,10 +129,20 @@ to see it in action:
 use the `-h` flag to see the manual.
 
 
+## kudos
+
+this whole thing started after reading a discussion on [an issue on the vue-cli repository][4], regarding the lack of a *non-interactive* flag.  
+after the issue was closed, people started posting some great ideas about how to work around it. i simply pieced the puzzle together.
+
+so thank you, @sobolevn, @paul-hammant, @shailendher, @Harti, @jukefr, @italomaia - who opened this issue in the first place - and everyone involved.
+
+:octocat: :pray: :purple_heart:
+
 
 
 
 [1]: https://img.shields.io/npm/v/vue-cli-template-dev-server.svg?style=flat-square
 [2]: https://www.npmjs.com/package/vue-cli-template-dev-server
 [3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
+[4]: https://github.com/vuejs/vue-cli/issues/291
 [5]: example
