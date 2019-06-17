@@ -2,7 +2,7 @@
 
 *development server for building vue-cli custom templates*
 
-[![NPM][1]][2] [![Mentioned in Awesome Vue][6]][7]
+[![NPM][1]][2] [![mentioned in awesome-vue][6]][7]
 
 
 ---
