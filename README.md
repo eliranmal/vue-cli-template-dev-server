@@ -2,7 +2,8 @@
 
 *development server for building vue-cli custom templates*
 
-[![NPM][1]][2]
+[![NPM][1]][2] [![mentioned in awesome-vue][6]][7]
+
 
 ---
 
@@ -87,6 +88,13 @@ env TARGET_INIT_COMMAND='serve' npm run dev -- 'dist/dev-server-out' 'my-app'
 ```
 
 
+## CLI
+
+use the `-h` flag to see the manual.
+
+<sup>:ok_hand: ***tip:** to run from the terminal, navigate to the project root directory and run `$(npm bin)/vue-cli-template-dev-server -h`. when installed globally (not recommended), you can just run `vue-cli-template-dev-server -h` from anywhere.*</sup>
+
+
 ## demo
 
 check out the [*/example*][5] directory in this repository for an example usage with the most simple application.
@@ -124,10 +132,14 @@ to see it in action:
 - see *./out/hello.md* change accordingly.
 
 
-## CLI
+## kudos
 
-use the `-h` flag to see the manual.
+this whole thing started after reading a discussion on [an issue on the vue-cli repository][4], regarding the lack of a *non-interactive* flag.  
+after the issue was closed, people started posting some great ideas about how to work around it. i simply pieced the puzzle together.
 
+so thank you, @sobolevn, @paul-hammant, @shailendher, @Harti, @jukefr, @italomaia - who opened this issue in the first place - and everyone involved.
+
+:octocat: :pray: :purple_heart:
 
 
 
@@ -135,4 +147,7 @@ use the `-h` flag to see the manual.
 [1]: https://img.shields.io/npm/v/vue-cli-template-dev-server.svg?style=flat-square
 [2]: https://www.npmjs.com/package/vue-cli-template-dev-server
 [3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
+[4]: https://github.com/vuejs/vue-cli/issues/291
 [5]: example
+[6]: https://awesome.re/mentioned-badge-flat.svg
+[7]: https://github.com/vuejs/awesome-vue
