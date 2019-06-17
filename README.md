@@ -2,7 +2,8 @@
 
 *development server for building vue-cli custom templates*
 
-[![NPM][1]][2]
+[![NPM][1]][2] [![Mentioned in Awesome Vue][6]][7]
+
 
 ---
 
@@ -148,3 +149,5 @@ so thank you, @sobolevn, @paul-hammant, @shailendher, @Harti, @jukefr, @italomai
 [3]: https://github.com/vuejs/vue-cli/tree/master#custom-templates
 [4]: https://github.com/vuejs/vue-cli/issues/291
 [5]: example
+[6]: https://awesome.re/mentioned-badge-flat.svg
+[7]: https://github.com/vuejs/awesome-vue
