@@ -149,20 +149,16 @@ function initialize_target_project {
 	fi
 
 	(
-		cd ${project_dir} >/dev/null 2>&1
+		cd ${project_dir}
 
-		# install dependencies
+		log "installing the output project's npm dependencies..."
 		npm i >/dev/null 2>&1
-		if (( $? == 1 )); then
-			quit "failed installing the output project's npm dependencies"
-		fi
+		status_log "installed ok" "install failed"
 
-		# launch dev server / whatever
 		if is_npm_command_available "$init_command"; then
-			npm run "$init_command" >/dev/null 2>&1
-			if (( $? == 1 )); then
-				quit "the output project's initialize command execution failed"
-			fi
+			log "executing the output project's npm command '$init_command' in the background..."
+			npm run "$init_command" &
+			status_log "executed ok" "execution failed"
 		fi
 	)
 }
@@ -307,6 +303,17 @@ function set_traps {
 function log {
 	local msg="$1"
 	printf "\n[dev-server] %s\n" "$msg"
+}
+
+function status_log {
+	local status=$?
+	local ok_msg="$1"
+	local err_msg="$2"
+	if (( $status == 0 )); then
+		log "$ok_msg"
+	else
+		quit "$err_msg"
+	fi
 }
 
 function quit {
